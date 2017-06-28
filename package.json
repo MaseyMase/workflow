@@ -1,0 +1,25 @@
+{
+  "name": "workflow",
+  "version": "1.0.0",
+  "description": "MY workflow with npm, sass, gulp and more",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaseyMase/workflow.git"
+  },
+  "keywords": [
+    "SASS",
+    "NPM",
+    "GIT",
+    "Gulp"
+  ],
+  "author": "Mase Fayazi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaseyMase/workflow/issues"
+  },
+  "homepage": "https://github.com/MaseyMase/workflow#readme"
+}
