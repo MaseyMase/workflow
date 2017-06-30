@@ -13,6 +13,7 @@ var injectPartials = require('gulp-inject-partials');
 var minify = require('gulp-minify');
 var rename = require('gulp-rename');
 var cssmin = require('gulp-cssmin');
+var htmlmin  = require('gulp-htmlmin');
 
 var SOURCEPATHS = {
   sassSource : 'src/scss/*.scss',
@@ -75,7 +76,7 @@ gulp.task('scripts', ['clean-scripts'], function(){
     .pipe(gulp.dest(APPATH.js))
 });
 
-// production task
+// production task compress your src css into minified css, in the app folder
 gulp.task('compress', function(){
   gulp.src(SOURCEPATHS.jsSource)
     .pipe(concat('main.js'))
@@ -104,6 +105,15 @@ gulp.task('compresscss', function(){
 
 //end of production task
 
+
+gulp.task('minifyHtml', function() {
+  return gulp.src(SOURCEPATHS.htmlSource)
+  .pipe(injectPartials())
+  .pipe(htmlmin({collapseWhitespace: true}))
+  .pipe(gulp.dest(APPATH.root))
+});
+
+//copy html in src and 'compile' it in the appath.root folder
 gulp.task('html', function() {
   return gulp.src(SOURCEPATHS.htmlSource)
   .pipe(injectPartials())
@@ -134,3 +144,6 @@ gulp.task('watch', ['serve', 'sass', 'clean-html', 'clean-scripts', 'scripts', '
 });
 
 gulp.task('default', ['watch']);
+
+
+gulp.task('production', ['minifyHtml', 'compresscss', 'compress']) ;
