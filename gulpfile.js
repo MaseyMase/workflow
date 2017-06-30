@@ -146,4 +146,4 @@ gulp.task('watch', ['serve', 'sass', 'clean-html', 'clean-scripts', 'scripts', '
 gulp.task('default', ['watch']);
 
 
-gulp.task('production', ['minifyHtml', 'compresscss', 'compress']) ;
+gulp.task('production', ['minifyHtmlw', 'compresscss', 'compress']) ;
